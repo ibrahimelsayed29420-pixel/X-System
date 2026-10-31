@@ -1,0 +1,25 @@
+{
+  "currency": "AED",
+  "ajman": {
+    "regulator": "دائرة الأراضي والتنظيم العقاري - عجمان (ARRA)",
+    "transfer_fee_rate": {
+      "citizen_gcc": 0.02,
+      "foreign_expat": 0.02
+    },
+    "brokerage_commission_rate": 0.02,
+    "tenancy_attestation_rate": 0.02,
+    "title_deed_fee": 1050,
+    "notes": "رسوم التسجيل العقاري في عجمان 2% من قيمة المبايعة، وعمولة الوساطة العقارية 2%."
+  },
+  "sharjah": {
+    "regulator": "دائرة التسجيل العقاري بالشارقة (SRERD)",
+    "transfer_fee_rate": {
+      "citizen_gcc": 0.02,
+      "foreign_expat": 0.04
+    },
+    "brokerage_commission_rate": 0.02,
+    "tenancy_attestation_rate": 0.04,
+    "title_deed_fee": 1000,
+    "notes": "رسوم التسجيل في الشارقة 2% لمواطني الدولة ودول مجلس التعاون، و4% للجنسيات الأخرى في مناطق التملك الحر المعتمدة."
+  }
+}

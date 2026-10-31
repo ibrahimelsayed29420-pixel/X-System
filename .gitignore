@@ -1,0 +1,28 @@
+# Ruflo local secrets and runtime data
+.env
+.env.local
+.env.*.local
+claude-flow.config.json
+.claude-flow/data/
+.claude-flow/logs/
+.claude-flow/sessions/
+.claude-flow/policy/
+.claude-flow/daemon-state.json
+.swarm/
+.rocketride/
+
+# Runtimes, caches, large models and binaries
+runtime/
+models/
+cache/
+data/
+logs/
+exports/
+*.vsix
+__pycache__/
+*.py[cod]
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.wav
+

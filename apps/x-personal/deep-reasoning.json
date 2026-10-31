@@ -1,0 +1,1 @@
+{"enabled": true, "model": "x-qwen-agent:latest", "source_commit": "6b9e9c9f9088deab6d1c3f12c3c9626605d803a2", "license": "MIT", "cloud_models": true, "base_model": "qwen3:4b-instruct", "arabic_tool_selection_verified": true, "english_reply_verified": true, "arabic_reply_verified": true}

@@ -1,0 +1,27 @@
+{
+  "ajman": {
+    "popular_areas": [
+      {"name_ar": "النعيمية", "name_en": "Al Nuaimiya", "type": "residential_commercial", "freehold": true},
+      {"name_ar": "الراشدية", "name_en": "Al Rashidiya", "type": "residential_towers", "freehold": true},
+      {"name_ar": "الروضة", "name_en": "Al Rawda", "type": "villas_apartments", "freehold": true},
+      {"name_ar": "المويهات", "name_en": "Al Mowaihat", "type": "villas", "freehold": true},
+      {"name_ar": "الياسمين", "name_en": "Al Yasmeen", "type": "villas_plots", "freehold": true},
+      {"name_ar": "الزاهية (عجمان)", "name_en": "Al Zahya", "type": "villas_plots", "freehold": true},
+      {"name_ar": "كورنيش عجمان", "name_en": "Ajman Corniche", "type": "luxury_apartments", "freehold": true},
+      {"name_ar": "أبراج سيتي تاورز", "name_en": "City Towers", "type": "apartments", "freehold": true},
+      {"name_ar": "أبراج كريك تاورز", "name_en": "Creek Towers", "type": "apartments", "freehold": true}
+    ]
+  },
+  "sharjah": {
+    "popular_areas": [
+      {"name_ar": "الجادة", "name_en": "Aljada", "type": "master_community_offplan", "freehold": true, "developer": "Arada"},
+      {"name_ar": "الزاهية", "name_en": "Al Zahia", "type": "villas_townhouses_apartments", "freehold": true, "developer": "Sharjah Holding"},
+      {"name_ar": "جزيرة مريم", "name_en": "Maryam Island", "type": "waterfront_luxury", "freehold": true, "developer": "Eagle Hills"},
+      {"name_ar": "مدينة تلال", "name_en": "Tilal City", "type": "plots_villas", "freehold": true},
+      {"name_ar": "مسار", "name_en": "Masaar", "type": "forest_community_villas", "freehold": true, "developer": "Arada"},
+      {"name_ar": "المجاز", "name_en": "Al Majaz", "type": "waterfront_apartments", "freehold": false},
+      {"name_ar": "الخان", "name_en": "Al Khan", "type": "waterfront_apartments", "freehold": false},
+      {"name_ar": "مويلح التجارية", "name_en": "Muwaileh Commercial", "type": "apartments_investment", "freehold": true}
+    ]
+  }
+}

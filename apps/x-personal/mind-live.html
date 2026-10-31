@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>X — العقل مباشر</title>
+<style>
+:root{color-scheme:dark;font-family:Segoe UI,Tahoma,sans-serif;background:#080f1d;color:#e8eef8}*{box-sizing:border-box}body{margin:0;padding:28px;max-width:1500px;margin-inline:auto}header{display:flex;justify-content:space-between;align-items:center;gap:20px}h1{font-size:29px;margin:0 0 8px}p{color:#9aaec9;line-height:1.7;margin:5px 0}.badge{border:1px solid #294460;border-radius:100px;padding:9px 17px;color:#65e4bf;background:#112a2d}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}.card,.panel{background:#101c30;border:1px solid #21334e;border-radius:18px;padding:18px}.card small{color:#9aaec9}.card strong{display:block;font-size:21px;margin-top:8px}.layout{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}.panel h2{font-size:17px;margin:0 0 15px}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:15px 0}.step{padding:14px 8px;border:1px solid #2a3e5a;border-radius:12px;text-align:center;font-size:12px;position:relative;transition:background .4s,border .4s}.step.active{border-color:#50e0c3;background:#123b3e;animation:pulse 1.3s infinite}.step.done{border-color:#347b72;background:#15302f}.step.failed{border-color:#f88080;background:#451f32}@keyframes pulse{50%{box-shadow:0 0 22px #50e0c344}}.graph{width:100%;height:300px;direction:ltr}.graph line{stroke:#2d536d;stroke-width:2}.graph circle{fill:#122a40;stroke:#4f7695;stroke-width:2}.graph text{fill:#d8e9fa;font-size:12px;text-anchor:middle;direction:rtl}.graph .lit circle{stroke:#65e4bf;fill:#17453f;animation:pulse 1.3s infinite}.events{max-height:405px;overflow:auto}.event{border-bottom:1px solid #25364b;padding:11px 0;font-size:13px;display:flex;justify-content:space-between;gap:14px}.event time{color:#849ab6;font-size:11px;white-space:nowrap}.muted{color:#94a8c4;font-size:12px}.footer{margin-top:18px;padding:14px;border-right:3px solid #4dcacb;background:#0d1b2c;font-size:13px;color:#afc3dc}#error{color:#ffb7a5} .full{margin-top:16px}.skills{display:flex;gap:8px;flex-wrap:wrap}.skill{background:#182c43;border-radius:8px;padding:8px 12px;font-size:12px}@media(max-width:850px){body{padding:16px}.layout{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:1fr}.graph{height:250px}header{align-items:flex-start}}
+</style>
+<style>
+.learning-controls,.learning-item{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.learning-item{justify-content:space-between;border-top:1px solid #25364b;padding:12px 0}
+.learning-item>div{flex:1;min-width:220px}
+.learning-controls input[type=text]{min-width:min(400px,100%);flex:1;background:#0d192a;color:#e8eef8;border:1px solid #38506e;border-radius:8px;padding:10px}
+.learning-controls button,.learning-item button{background:#18344b;color:#e8eef8;border:1px solid #42617e;border-radius:8px;padding:8px 12px;cursor:pointer}
+.learning-controls button:hover,.learning-item button:hover{border-color:#65e4bf}
+#learningMessage{min-height:1.5em;color:#65e4bf}
+</style>
+<style>
+.flow{perspective:900px;transform-style:preserve-3d;gap:12px}
+.step{transform:rotateX(8deg) rotateY(-5deg) translateZ(0);transform-style:preserve-3d;box-shadow:0 10px 18px #02071166;transition:transform .35s,box-shadow .35s}
+.step::before{content:"";position:absolute;inset:0;border-radius:inherit;transform:translateZ(-12px);background:#091322;border:1px solid #2a3e5a;box-shadow:0 9px 0 #070d18}
+.step::after{content:attr(data-index);position:absolute;top:5px;left:8px;color:#7292b4;font-size:10px}
+.step:hover{transform:rotateX(0) rotateY(0) translateZ(14px);box-shadow:0 17px 30px #020711aa}
+.step.active{transform:rotateX(0) rotateY(0) translateZ(20px);box-shadow:0 0 30px #50e0c355,0 16px 25px #02071188}
+.graph{transform:perspective(1000px) rotateX(9deg) rotateY(-4deg);transform-origin:center;transform-style:preserve-3d;filter:drop-shadow(0 16px 14px #02071166);animation:mapFloat 8s ease-in-out infinite}
+.graph:hover{animation-play-state:paused;transform:perspective(1000px) rotateX(2deg) rotateY(0)}
+.graph line{stroke-dasharray:9 7;animation:edgeFlow 3s linear infinite}
+.graph circle{filter:drop-shadow(0 6px 5px #0008);transition:r .35s,filter .35s}
+.graph g{transform-box:fill-box;transform-origin:center;transition:transform .35s}
+.graph g:hover{transform:translateY(-7px) scale(1.08)}
+.graph .lit circle{filter:drop-shadow(0 0 13px #65e4bfaa)}
+@keyframes edgeFlow{to{stroke-dashoffset:-32}}
+@keyframes mapFloat{0%,100%{translate:0 0}50%{translate:0 -6px}}
+@media(max-width:850px){.flow{grid-template-columns:repeat(3,1fr)}.graph{transform:none;animation:mapFloat 8s ease-in-out infinite}}
+@media(max-width:520px){.flow{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+<style>
+.flow{grid-template-columns:repeat(7,1fr)}
+.pages{display:grid;gap:10px}.page-read{background:#0d192a;border:1px solid #25364b;border-radius:12px;padding:12px}.page-read strong,.page-read code{display:block;overflow-wrap:anywhere}.page-read code{color:#75d8c0;margin:6px 0;font-size:12px}.page-read p{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}.page-read small{color:#94a8c4}
+@media(max-width:850px){.flow{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.flow{grid-template-columns:repeat(2,1fr)}}
+</style>
+<style>
+.chat-panel{margin:20px 0;border-color:#28546a;background:linear-gradient(145deg,#10263a,#101c30)}
+.chat-panel h2{margin:0 0 6px}.chat-note{font-size:12px;color:#9aaec9}
+.chat-messages{height:min(38vh,360px);min-height:180px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding:12px;margin:12px 0;background:#091423;border:1px solid #21334e;border-radius:14px}
+.chat-message{max-width:min(86%,720px);padding:11px 14px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7}
+.chat-message.user{align-self:flex-start;background:#14364b}.chat-message.assistant{align-self:flex-end;background:#17352f;border:1px solid #285344}
+.chat-message.error{align-self:stretch;color:#ffc1ad;background:#3a2027}
+.chat-compose{display:flex;gap:10px;align-items:flex-end}
+.chat-compose textarea{flex:1;min-height:54px;max-height:180px;resize:vertical;background:#0b1727;color:#e8eef8;border:1px solid #38506e;border-radius:12px;padding:13px;font:inherit;line-height:1.6}
+.chat-compose button{min-height:48px;padding:10px 18px;border:1px solid #42617e;border-radius:12px;background:#18344b;color:#e8eef8;font:inherit;font-weight:600;cursor:pointer}
+.chat-compose button.primary{background:#17665a;border-color:#48bba1}.chat-compose button.recording{background:#7c2d3e;border-color:#f08091;animation:pulse 1.3s infinite}
+.chat-compose button:disabled{opacity:.55;cursor:wait}.chat-status{min-height:1.7em;color:#65e4bf;font-size:13px;margin-top:8px}
+@media(max-width:600px){.chat-compose{display:grid;grid-template-columns:1fr 1fr}.chat-compose textarea{grid-column:1/-1}.chat-compose button{padding:10px}}
+</style>
+<header><div><h1> X <span style="color:#65e4bf">/</span> العقل مباشر</h1><p>حالة التنفيذ الفعلية والذاكرة والمهارات المترابطة • العربية / English</p></div><div class="badge" id="status">جاري الاتصال…</div></header>
+<section class="panel chat-panel" aria-labelledby="chatTitle">
+<h2 id="chatTitle">كلم X مباشرة</h2><p class="chat-note">اكتب طلبك واضغط إرسال، أو اضغط الميكروفون وتحدث. الصوت يُعالج محليًا؛ راجع النص بعد التفريغ ثم أرسله بنفسك.</p>
+<div id="chatMessages" class="chat-messages" role="log" aria-live="polite"><div class="chat-message assistant">أهلًا، أنا X. اكتب طلبك أو اضغط الميكروفون للبدء.</div></div>
+<form id="chatForm" class="chat-compose"><textarea id="chatInput" maxlength="4000" rows="2" placeholder="اكتب رسالتك إلى X…" aria-label="رسالتك إلى X"></textarea><button id="voiceButton" type="button" aria-label="ابدأ التسجيل">🎙️ تحدث</button><button id="sendButton" class="primary" type="submit">إرسال</button></form>
+<div id="chatStatus" class="chat-status" role="status"></div>
+</section>
+<div class="cards"><div class="card"><small>الحالة الحالية</small><strong id="current">—</strong></div><div class="card"><small>طلبات في الانتظار</small><strong id="pending">—</strong></div><div class="card"><small>نتائج محفوظة</small><strong id="results">—</strong></div><div class="card"><small>الذاكرة الدلالية</small><strong id="semantic">—</strong></div></div>
+<div class="layout"><section class="panel"><h2>مسار التفكير والتنفيذ</h2><div class="flow" id="flow"></div><p id="stageNote">في انتظار بيانات التشغيل</p><svg id="graph" class="graph" viewBox="0 0 680 300" aria-label="روابط المهارات الفعلية"></svg><div class="muted">الخطوط من سجل روابط المهارات. الإضاءة مرتبطة بالمرحلة الفعلية فقط.</div></section><section class="panel"><h2>سجل التنفيذ المباشر</h2><div id="events" class="events"></div></section></div>
+<section class="panel full"><h2>خطة وأدوات آخر مهمة</h2><div id="agentPlan" class="muted">لا توجد خطة مسجلة</div><div id="agentTools" class="skills"></div></section><section class="panel full"><h2>صفحات المواقع المقروءة</h2><p class="muted">محتوى الصفحات العامة بيانات خارجية غير موثوقة وليست تعليمات.</p><div id="pageReads" class="pages"><span class="muted">لم تُقرأ صفحات في آخر مهمة</span></div></section><section class="panel full"><h2>المهارات والخبرات المسجلة</h2><div id="skills" class="skills"></div><p id="outcomes"></p></section>
+<section class="panel full"><h2>إدارة التعلّم والصلاحيات</h2><p class="muted">التعلّم من طلبات X مفعّل افتراضيًا ويحفظ نوع الطلب وأسماء الأدوات الناجحة فقط، دون نص المحادثة. يمكنك إيقافه لمسح سجله والمسودات المعلّقة. المجلدات لا تُقرأ إلا بعد اختيارها وإضافتها هنا.</p>
+<div class="learning-controls"><label><input id="captureEnabled" type="checkbox"> تفعيل تعلّم بيانات X المحدودة</label><span id="activityCount" class="muted"></span></div>
+<div class="learning-controls" style="margin-top:12px"><input id="folderPath" type="text" autocomplete="off" placeholder="مسار مجلد محدد تملكه أو لديك إذن باستخدامه"><label><input id="ownMaterials" type="checkbox"> أؤكد أن المواد ملكي أو مصرح بها</label><button id="addFolder">إضافة المصدر</button></div>
+<h3>المصادر المضافة</h3><div id="learningSources"></div><h3>اقتراحات المهارات</h3><div id="learningProposals"></div><p id="learningMessage" role="status"></p></section>
+<div class="footer">النطاق الحالي هو طلبات X والمصادر التي تختارها يدويًا. لا تسجيل شامل للشاشة أو ضغطات المفاتيح أو الصوت/الكاميرا، ولا صلاحيات Admin دائمة. <span id="updated"></span></div><p id="error"></p>
+<script>
+const labels={agent:'تخطيط واختيار المهارات',recall:'استرجاع الذاكرة',intent:'فهم نوع الطلب',search:'البحث بالمصادر',read:'قراءة صفحة عامة',respond:'توليد الرد محليًا',save:'حفظ المحادثة'};
+const order=['recall','intent','agent','search','read','respond','save'];
+const el=id=>document.getElementById(id);const ns='http://www.w3.org/2000/svg';let last=null;
+function svgNode(tag,attrs){const n=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);return n}
+function render(d){
+ const running=(d.runtime.process_alive&&d.runtime.state==='processing')||Boolean(d.stage.worker_alive);const fresh=d.stage.at&&(Date.now()-Date.parse(d.stage.at)<240000);const active=running&&fresh&&d.stage.state==='running'?d.stage.stage:null;
+ el('status').textContent=d.runtime.process_alive?(running?'ينفّذ طلبًا الآن':'متصل • منتظر طلبك'):'العقل متوقف';
+ el('current').textContent=active?labels[active]:(running?'استكمال الطلب':'منتظر طلبك');el('pending').textContent=d.pending;el('results').textContent=d.results;
+ el('semantic').textContent=d.semantic.enabled?'محلية • Mem0':'قيد التجهيز';
+ el('flow').replaceChildren();for(const[index,key]of order.entries()){const node=document.createElement('div');node.className='step';node.dataset.index=String(index+1).padStart(2,'0');node.textContent=labels[key];if(key===active)node.classList.add('active');else if(key===d.stage.stage&&d.stage.state==='failed')node.classList.add('failed');else if(key===d.stage.stage&&d.stage.state==='complete')node.classList.add('done');el('flow').append(node)}
+ el('stageNote').textContent=active?'المرحلة المضيئة شغالة دلوقتي':(running?'الطلب قيد التنفيذ':'لا يوجد تنفيذ نشط؛ آخر مرحلة ظاهرة بسجلها الزمني');
+ const graph=el('graph');graph.replaceChildren();const caps=d.graph.skills;const pos={};caps.forEach((s,i)=>{let a=i*2*Math.PI/caps.length-Math.PI/2;pos[s.id]=[340+215*Math.cos(a),150+102*Math.sin(a)]});
+ d.graph.relations.forEach(r=>{if(pos[r.source]&&pos[r.target]){const[a,b]=[pos[r.source],pos[r.target]];graph.append(svgNode('line',{x1:a[0],y1:a[1],x2:b[0],y2:b[1],class:'flow-line'}))}});
+ const lit={agent:['planning','ollama'],recall:['memory'],intent:['dialogue','workflow'],search:['research','source_review'],read:['research','source_review'],respond:['ollama','dialogue'],save:['memory']}[active]||[];
+ caps.forEach(s=>{const[x,y]=pos[s.id],g=svgNode('g',{class:lit.includes(s.id)?'lit':''});g.append(svgNode('circle',{cx:x,cy:y,r:34}));const text=svgNode('text',{x,y:y+53});text.textContent=s.title.length>24?s.title.slice(0,24)+'…':s.title;const tip=svgNode('title',{});tip.textContent=s.title;g.append(tip);g.append(text);graph.append(g)});
+ el('events').replaceChildren();for(const e of [...d.events].reverse()){const row=document.createElement('div');row.className='event';const title=document.createElement('span');title.textContent=(labels[e.stage]||e.stage)+' — '+({running:'بدأت',complete:'اكتملت',failed:'فشلت'}[e.state]||e.state);const t=document.createElement('time');t.textContent=new Date(e.at).toLocaleTimeString('ar-EG',{timeZone:'Asia/Dubai'});row.append(title,t);el('events').append(row)}
+ if(!d.events.length)el('events').textContent='لا توجد مراحل منفذة مسجلة حتى الآن';
+ el('skills').replaceChildren();for(const s of d.graph.skills){const item=document.createElement('span');item.className='skill';item.textContent=(s.kind==='lesson'?'خبرة: ':'')+s.title;el('skills').append(item)}
+ el('agentPlan').textContent=(d.agent?.plan||[]).join(' ← ')||'لم تتطلب المهمة خطة مكتوبة';el('agentTools').replaceChildren();for(const call of (d.agent?.tool_calls||[])){const item=document.createElement('span');item.className='skill';item.textContent=call.name+' — '+(call.state==='complete'?'اكتمل':'فشل');el('agentTools').append(item)}
+ const pages=el('pageReads');pages.replaceChildren();for(const page of (d.agent?.pages||[])){const card=document.createElement('article');card.className='page-read';const title=document.createElement('strong');title.textContent=page.title||'صفحة عامة';const url=document.createElement('code');url.textContent=page.url||'';const preview=document.createElement('p');preview.textContent=page.preview||'';const details=document.createElement('small');details.textContent=`${page.characters||0} حرفًا مقروءًا`;card.append(title,url,preview,details);pages.append(card)}if(!pages.childElementCount)pages.textContent='لم تُقرأ صفحات في آخر مهمة';
+ el('outcomes').textContent=d.graph.outcomes.map(o=>`${o.skill}: ${o.successful} طلب اكتمل تقنيًا من ${o.attempts}`).join(' • ');
+ renderLearning(d.learning);
+ el('updated').textContent='آخر قراءة: '+new Date().toLocaleTimeString('ar-EG',{timeZone:'Asia/Dubai'});el('error').textContent='';
+}
+function button(text,action,value){
+ const item=document.createElement('button');item.type='button';item.textContent=text;
+ item.addEventListener('click',()=>runLearningAction(action,value));return item
+}
+function renderLearning(data){
+ if(!data)return;
+ if(document.activeElement!==el('captureEnabled'))el('captureEnabled').checked=data.capture_x_activity;
+ el('activityCount').textContent=`سجلات النشاط المحتفظ بها: ${data.activity_count}`;
+ const sources=el('learningSources');sources.replaceChildren();
+ for(const source of data.sources){
+  const row=document.createElement('div');row.className='learning-item';
+  const info=document.createElement('div');info.textContent=`${source.label} — ${source.enabled?'مفعّل':'تم سحبه'}`;row.append(info);
+  if(source.enabled){row.append(button('قراءة المجلد يدويًا','scan_source',{source_id:source.id}),button('سحب المصدر وحذف اقتراحاته','revoke_source',{source_id:source.id}))}
+  sources.append(row)
+ }
+ if(!sources.childElementCount)sources.textContent='لم تتم إضافة مصادر محلية.';
+ const proposals=el('learningProposals');proposals.replaceChildren();
+ for(const proposal of data.proposals){
+  const row=document.createElement('div');row.className='learning-item';const info=document.createElement('div');
+  info.textContent=`${proposal.title} — ${proposal.status==='pending'?'بانتظار مراجعتك':proposal.status==='approved'?'معتمدة':'مرفوضة'}`;row.append(info);
+  if(proposal.status==='pending'){
+   row.append(button('اعتماد المهارة','approve_proposal',{proposal_id:proposal.id}),button('رفض وحذف','reject_proposal',{proposal_id:proposal.id}))
+  }else if(proposal.status==='approved'){
+   row.append(button('حذف المهارة','remove_skill',{skill_id:proposal.skill_id}))
+  }
+  proposals.append(row)
+ }
+ if(!proposals.childElementCount)proposals.textContent='لا توجد اقتراحات مهارات.';
+}
+async function runLearningAction(action,data){
+ el('learningMessage').textContent='جارٍ تنفيذ الإجراء…';
+ try{
+  const response=await fetch('/api/learning',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,...data})});
+  const result=await response.json();if(!response.ok||!result.ok)throw Error(result.error||`HTTP ${response.status}`);
+  el('learningMessage').textContent='تم الإجراء بنجاح.';
+  if(action==='add_folder'){el('folderPath').value='';el('ownMaterials').checked=false}
+  await tickOnce()
+ }catch(error){el('learningMessage').textContent='تعذر تنفيذ الإجراء: '+error.message}
+}
+let voiceCapture=null;
+function addChatMessage(text,kind){
+ const message=document.createElement('div');message.className='chat-message '+kind;message.textContent=text;
+ el('chatMessages').append(message);el('chatMessages').scrollTop=el('chatMessages').scrollHeight;return message
+}
+async function sendChat(event){
+ event.preventDefault();const text=el('chatInput').value.trim();if(!text)return;
+ if(text.length>4000){el('chatStatus').textContent='الحد الأقصى للرسالة 4000 حرف.';return}
+ addChatMessage(text,'user');el('chatInput').value='';el('sendButton').disabled=true;el('voiceButton').disabled=true;
+ el('chatStatus').textContent='جارٍ التحقق من الحساب وإرسال الطلب إلى عقل X المحلي…';
+ try{
+  const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});
+  const result=await response.json();if(!response.ok||!result.ok)throw Error(result.error||`HTTP ${response.status}`);
+  const reply=result.result?.reply;if(typeof reply!=='string'||!reply.trim())throw Error('لم يرجع X ردًا صالحًا.');
+  addChatMessage(reply,'assistant');el('chatStatus').textContent='وصل رد X.';
+ }catch(error){el('chatInput').value=text;addChatMessage(error.message,'error');el('chatStatus').textContent='تعذر إكمال الطلب؛ احتفظت برسالتك لتجرب مرة أخرى.'}
+ finally{el('sendButton').disabled=false;el('voiceButton').disabled=false;el('chatInput').focus()}
+}
+function makeWav(chunks,sampleRate){
+ const length=chunks.reduce((total,part)=>total+part.length,0);if(!length)throw Error('لم يُلتقط صوت واضح.');
+ const input=new Float32Array(length);let offset=0;for(const part of chunks){input.set(part,offset);offset+=part.length}
+ const outputLength=Math.floor(length*16000/sampleRate);if(!outputLength)throw Error('التسجيل أقصر من أن يُفرّغ.');
+ const buffer=new ArrayBuffer(44+outputLength*2),view=new DataView(buffer);
+ const write=(position,value)=>{for(let i=0;i<value.length;i++)view.setUint8(position+i,value.charCodeAt(i))};
+ write(0,'RIFF');view.setUint32(4,36+outputLength*2,true);write(8,'WAVE');write(12,'fmt ');
+ view.setUint32(16,16,true);view.setUint16(20,1,true);view.setUint16(22,1,true);
+ view.setUint32(24,16000,true);view.setUint32(28,32000,true);view.setUint16(32,2,true);
+ view.setUint16(34,16,true);write(36,'data');view.setUint32(40,outputLength*2,true);
+ for(let i=0;i<outputLength;i++){
+  const source=i*sampleRate/16000,left=Math.floor(source),fraction=source-left;
+  const first=input[Math.min(left,length-1)],second=input[Math.min(left+1,length-1)];
+  const sample=Math.max(-1,Math.min(1,first+(second-first)*fraction));
+  view.setInt16(44+i*2,sample<0?sample*32768:sample*32767,true)
+ }
+ return new Blob([buffer],{type:'audio/wav'})
+}
+async function finishVoice(){
+ const capture=voiceCapture;if(!capture)return;voiceCapture=null;
+ capture.processor.disconnect();capture.source.disconnect();capture.silence.disconnect();
+ capture.stream.getTracks().forEach(track=>track.stop());await capture.context.close();
+ el('voiceButton').classList.remove('recording');el('voiceButton').textContent='🎙️ تحدث';el('voiceButton').disabled=true;
+ el('chatStatus').textContent='جارٍ تفريغ التسجيل محليًا؛ لن يُرسل النص إلى X قبل مراجعتك.';
+ try{
+  const audio=makeWav(capture.chunks,capture.sampleRate);
+  const response=await fetch('/api/transcribe',{method:'POST',headers:{'Content-Type':'audio/wav'},body:audio});
+  const result=await response.json();if(!response.ok||!result.ok)throw Error(result.error||`HTTP ${response.status}`);
+  if(!result.text)throw Error('لم يُفهم الكلام. جرّب مرة أخرى.');
+  el('chatInput').value=result.text;el('chatInput').focus();
+  el('chatStatus').textContent='راجع النص وعدّله إن لزم، ثم اضغط إرسال إلى X.';
+ }catch(error){addChatMessage(error.message,'error');el('chatStatus').textContent='لم يُرسل التسجيل أو النص إلى X.'}
+ finally{el('voiceButton').disabled=false}
+}
+async function toggleVoice(){
+ if(voiceCapture){await finishVoice();return}
+ if(!navigator.mediaDevices?.getUserMedia||!window.AudioContext){
+  el('chatStatus').textContent='التسجيل غير مدعوم في هذا المتصفح؛ جرّب Edge أو اكتب رسالتك.';return
+ }
+ let stream=null,context=null;
+ try{
+  stream=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true},video:false});
+  context=new AudioContext();await context.resume();
+  const source=context.createMediaStreamSource(stream),processor=context.createScriptProcessor(4096,1,1),silence=context.createGain();
+  silence.gain.value=0;const chunks=[];let frames=0;const maximum=context.sampleRate*120;
+  processor.onaudioprocess=event=>{
+   const chunk=new Float32Array(event.inputBuffer.getChannelData(0));chunks.push(chunk);frames+=chunk.length;
+   if(frames>=maximum)finishVoice().catch(error=>{el('chatStatus').textContent=error.message})
+  };
+  source.connect(processor);processor.connect(silence);silence.connect(context.destination);
+  voiceCapture={stream,context,source,processor,silence,chunks,sampleRate:context.sampleRate};
+  el('voiceButton').classList.add('recording');el('voiceButton').textContent='⏹ إيقاف وتفريغ محلي';
+  el('chatStatus').textContent='الميكروفون يعمل الآن. اضغط إيقاف عند الانتهاء؛ الحد دقيقتان.';
+ }catch(error){if(stream)stream.getTracks().forEach(track=>track.stop());if(context)await context.close();el('chatStatus').textContent='تعذر بدء الميكروفون: '+error.message}
+}
+async function tickOnce(){const response=await fetch('/api/state',{cache:'no-store'});if(response.ok)render(await response.json())}
+el('captureEnabled').addEventListener('change',()=>runLearningAction('set_capture',{enabled:el('captureEnabled').checked}));
+el('chatForm').addEventListener('submit',sendChat);
+el('chatInput').addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();el('chatForm').requestSubmit()}});
+el('voiceButton').addEventListener('click',toggleVoice);
+el('addFolder').addEventListener('click',()=>{
+ if(!el('ownMaterials').checked){el('learningMessage').textContent='أكد أولًا أن لديك حق استخدام مواد هذا المجلد.';return}
+ runLearningAction('add_folder',{folder:el('folderPath').value,own_materials:true})
+});
+async function tick(){try{const response=await fetch('/api/state',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);render(await response.json())}catch(e){el('status').textContent='الاتصال متوقف';el('error').textContent='تعذر قراءة الحالة الحقيقية: '+e.message;document.querySelectorAll('.active,.lit').forEach(n=>n.classList.remove('active','lit'))}finally{setTimeout(tick,1000)}}tick();
+</script></html>

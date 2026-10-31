@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "owner": "Ibrahim",
+  "accounts": {
+    "meta": {
+      "business_id": "848400532807121",
+      "page_id": "103425869505880",
+      "url": "https://business.facebook.com/latest/home?business_id=848400532807121&page_id=103425869505880",
+      "status": "user_provided_not_verified"
+    },
+    "instagram": {
+      "username": "ibrahimelsayed.rea",
+      "url": "https://www.instagram.com/ibrahimelsayed.rea/",
+      "status": "user_provided_not_verified"
+    },
+    "facebook": {
+      "url": "https://www.facebook.com/Ibrahimelsayedag",
+      "account_type": "unverified",
+      "status": "user_provided_not_verified"
+    },
+    "whatsapp": {
+      "account_type": "WhatsApp Business",
+      "ownership": "personal_work_number",
+      "status": "login_and_integration_not_verified"
+    },
+    "tiktok": {
+      "username": "ibrahim.rea",
+      "url": "https://www.tiktok.com/@ibrahim.rea",
+      "status": "user_provided_not_verified"
+    },
+    "property_finder_expert": {
+      "agent_id": "337067",
+      "display_name": "Ibrahim Elsayed",
+      "url": "https://app.propertyfinder.ae/",
+      "status": "user_provided_not_verified"
+    },
+    "email": {
+      "provider": "Yahoo",
+      "address": "ibrahim_elsayed_ag@yahoo.com",
+      "url": "https://mail.yahoo.com/",
+      "status": "user_provided_not_verified"
+    }
+  },
+  "integration_status": "not_connected",
+  "credentials_stored": false
+}

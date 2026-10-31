@@ -1,0 +1,13 @@
+profile.json
+profile-private.json
+settings*.json
+*verification.json
+__pycache__/
+*.wav
+*.mp3
+.env
+*.key
+*.db
+*.sqlite*
+logs/
+*.log

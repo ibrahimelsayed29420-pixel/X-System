@@ -1,0 +1,1 @@
+{"enabled": true, "provider": "mem0-oss", "embedding_model": "bge-m3:latest", "cloud_memory": false, "source_commit": "26cdefb46600c0fa5953c4b5ee5003c125539fc4", "verified_arabic_recall": true}

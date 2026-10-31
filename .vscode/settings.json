@@ -1,0 +1,46 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python.defaultInterpreterPath": "D:\\X-System\\runtime\\deepagents-venv\\Scripts\\python.exe",
+    "chat.tools.terminal.blockDetectedFileWrites": "never",
+    "chat.tools.terminal.ignoreDefaultAutoApproveRules": true,
+    "chat.permissions.default": "autoApprove",
+    "chat.agent.sandbox.network.outbound": "blocked",
+    "chat.agent.sandbox.network.allowedDomains": [],
+    "chat.agent.sandbox.network.deniedDomains": [],
+    "chat.agent.sandbox.fileSystem.userConfiguredPaths": {
+      "readwritePaths": [
+        "C:\\Users\\nenoh\\AppData\\Local\\X-System\\mind",
+        "C:\\Users\\nenoh\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
+      ],
+      "readonlyPaths": [
+        "C:\\Users\\nenoh\\.copilot\\session-state\\0033141b-7dce-444a-8cb0-ab350cafbdc4\\checkpoints\\002-0f84189a.md"
+      ],
+      "deniedPaths": []
+    },
+    "chat.agent.sandbox.network.allowNetwork": false,
+    "python.terminal.useEnvFile": true,
+    "chat.mcp.serverSampling": {
+      "X-System/.vscode/mcp.json: io.github.github/github-mcp-server": {
+        "allowedModels": [
+          "copilot/auto",
+          "copilotcli/auto",
+          "agent-host-copilotcli:auto",
+          "agent-host-copilotcli:ollama-models/bge-m3:latest",
+          "agent-host-copilotcli:deepseek/deepseek-v4-flash",
+          "deepseek/deepseek-v4-flash",
+          "agent-host-copilotcli:deepseek/deepseek-v4-flash-vision-exp",
+          "deepseek/deepseek-v4-flash-vision-exp",
+          "agent-host-copilotcli:deepseek/deepseek-v4-pro",
+          "deepseek/deepseek-v4-pro",
+          "agent-host-copilotcli:deepseek/deepseek-flash",
+          "deepseek/deepseek-flash",
+          "agent-host-copilotcli:ollama-models/llama3.2:latest",
+          "agent-host-copilotcli:ollama-models/qwen3:4b",
+          "agent-host-copilotcli:ollama-models/qwen3:4b-instruct",
+          "agent-host-copilotcli:aitk-foundry/aitk-foundry/__no-project__",
+          "agent-host-copilotcli:ollama-models/x-ibrahim:latest",
+          "agent-host-copilotcli:ollama-models/x-qwen-agent:latest"
+        ]
+      }
+    }
+}

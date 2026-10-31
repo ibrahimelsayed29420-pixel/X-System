@@ -1,0 +1,14 @@
+{
+  "source": "https://github.com/odysseus-dev/odysseus.git",
+  "branch": "main",
+  "commit": "9d0d3720f4ca181d87bef94da826d730acc6d483",
+  "license": "AGPL-3.0-or-later",
+  "source_directory": "D:/X-System/runtime/odysseus",
+  "python_environment": "D:/X-System/runtime/odysseus-venv",
+  "data_directory": "D:/X-System/data/odysseus",
+  "workspace": "D:/X-System/apps/x-personal",
+  "ollama_url": "http://127.0.0.1:11434/v1",
+  "local_url": "http://127.0.0.1:7011",
+  "status": "installation_in_progress",
+  "external_accounts_connected": false
+}

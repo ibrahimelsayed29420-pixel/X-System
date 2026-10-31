@@ -1,0 +1,14 @@
+{
+  "model": "x-ibrahim:latest",
+  "base_model": "llama3.2:latest",
+  "weights_trained": false,
+  "engine": "LangGraph",
+  "memory": "D:/X-System/data/mind/memory.sqlite",
+  "identity_verification": "disabled_during_development_by_user",
+  "dashboard_listener": "127.0.0.1:18764 read-only",
+  "background_runtime": "per-user Windows startup",
+  "semantic_memory": "Mem0 OSS + Qdrant local + Ollama BGE-M3",
+  "active_reasoning": "Deep Agents + x-qwen-agent:latest",
+  "reasoning_base_model": "qwen3:4b-instruct",
+  "languages": ["Arabic", "English"]
+}

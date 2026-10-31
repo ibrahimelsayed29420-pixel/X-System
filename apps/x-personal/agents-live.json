@@ -1,0 +1,13 @@
+{
+  "source": "collaboration.list_agents",
+  "observed_at": "23:24:09",
+  "snapshot": true,
+  "agents": [
+    {
+      "id": "/root",
+      "display_name": "المساعد الرئيسي — Codex",
+      "role": "تجهيز X ومراجعة المهارات والإضافات",
+      "observed_status": "running"
+    }
+  ]
+}
