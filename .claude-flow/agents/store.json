@@ -1,0 +1,44 @@
+{
+  "agents": {
+    "agent-1793367866406-1camto": {
+      "agentId": "agent-1793367866406-1camto",
+      "agentType": "researcher",
+      "name": "local-qwen-smoke",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 1,
+      "config": {
+        "provider": "ollama",
+        "model": "qwen3:4b-instruct"
+      },
+      "createdAt": "2026-10-30T13:44:26.406Z",
+      "domain": "local-model-verification",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit",
+      "modelId": "qwen3:4b-instruct",
+      "provider": "ollama",
+      "lastResult": {
+        "success": true,
+        "agentId": "agent-1793367866406-1camto",
+        "messageId": "chatcmpl-697",
+        "model": "qwen3:4b-instruct",
+        "stopReason": "stop",
+        "output": "LOCAL_QWEN_OK",
+        "usage": {
+          "inputTokens": 96,
+          "outputTokens": 6,
+          "totalTokens": 102
+        },
+        "durationMs": 13475
+      },
+      "executionHistory": [
+        {
+          "at": "2026-10-30T13:44:48.669Z",
+          "success": true,
+          "durationMs": 13475
+        }
+      ]
+    }
+  },
+  "version": "3.0.0"
+}

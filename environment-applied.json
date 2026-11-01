@@ -1,0 +1,7 @@
+﻿{
+    "UV_CACHE_DIR":  "D:\\X-System\\cache\\uv",
+    "HF_HOME":  "D:\\X-System\\models\\huggingface",
+    "OLLAMA_MODELS":  "D:\\X-System\\models\\ollama",
+    "PIP_CACHE_DIR":  "D:\\X-System\\cache\\pip",
+    "npm_config_cache":  "D:\\X-System\\cache\\npm"
+}

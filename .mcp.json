@@ -2,9 +2,10 @@
 	"mcpServers": {
 		"playwright": {
 			"type": "stdio",
-			"command": "C:\\Users\\nenoh\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+			"command": "npx",
 			"args": [
-				"D:\\X-System\\runtime\\playwright-mcp\\node_modules\\@playwright\\mcp\\cli.js"
+				"-y",
+				"@playwright/mcp@latest"
 			],
 			"tools": [
 				"*"

@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-10-30T14:33:16.296Z",
+  "distillationEnabled": true,
+  "patternsConsolidated": 0,
+  "memoryCleaned": 0,
+  "duplicatesRemoved": 0,
+  "episodes": 0,
+  "episodeEmbeddings": 0,
+  "patternEmbeddings": 0,
+  "causalEdges": 0,
+  "promoted": 0,
+  "byProvenance": {},
+  "namespaces": [],
+  "dryRun": false,
+  "corrupt": false,
+  "skipped": "error: The module '\\\\?\\D:\\X-System\\runtime\\ruflo-3.61.1\\node_modules\\better-sqlite3\\build\\Release\\better_sqlite3.node'\nwas compiled against a different Node.js version using\nNODE_MODULE_VERSION 127. This version of Node.js requires\nNODE_MODULE_VERSION 137. Please try re-compiling or re-installing\nthe module (for instance, using `npm rebuild` or `npm install`).; no-db",
+  "stores": [
+    {
+      "dbPath": "D:\\X-System\\.swarm\\memory.db",
+      "processed": 0,
+      "patterns": 0,
+      "skipped": "error: The module '\\\\?\\D:\\X-System\\runtime\\ruflo-3.61.1\\node_modules\\better-sqlite3\\build\\Release\\better_sqlite3.node'\nwas compiled against a different Node.js version using\nNODE_MODULE_VERSION 127. This version of Node.js requires\nNODE_MODULE_VERSION 137. Please try re-compiling or re-installing\nthe module (for instance, using `npm rebuild` or `npm install`)."
+    },
+    {
+      "dbPath": "D:\\X-System\\.swarm\\agentdb-memory.db",
+      "processed": 0,
+      "patterns": 0,
+      "skipped": "no-db"
+    }
+  ]
+}

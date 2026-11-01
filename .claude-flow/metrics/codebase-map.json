@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-10-30T14:40:16.381Z",
+  "projectRoot": "D:\\X-System",
+  "structure": {
+    "hasPackageJson": false,
+    "hasTsConfig": false,
+    "hasClaudeConfig": false,
+    "hasClaudeFlow": true
+  },
+  "scannedAt": 1793371216381
+}

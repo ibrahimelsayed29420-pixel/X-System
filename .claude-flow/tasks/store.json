@@ -1,0 +1,31 @@
+{
+  "tasks": {
+    "task-1793367196147-j5l776": {
+      "taskId": "task-1793367196147-j5l776",
+      "type": "research",
+      "description": "Smoke test Ruflo MCP task persistence from the X workspace. This is a disposable verification task only; do not modify project files or spawn agents.",
+      "priority": "low",
+      "status": "completed",
+      "progress": 100,
+      "assignedTo": [],
+      "tags": [
+        "integration-smoke",
+        "verification"
+      ],
+      "createdAt": "2026-10-30T13:33:16.147Z",
+      "startedAt": null,
+      "completedAt": "2026-10-30T13:33:22.221Z",
+      "result": {
+        "verification": "passed",
+        "steps": [
+          "Created task through Ruflo MCP",
+          "Retrieved the task through Ruflo MCP"
+        ],
+        "projectFilesModified": false,
+        "agentsSpawned": false,
+        "note": "Disposable integration smoke test; task persistence works."
+      }
+    }
+  },
+  "version": "3.0.0"
+}

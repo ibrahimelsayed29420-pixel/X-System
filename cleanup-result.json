@@ -1,0 +1,23 @@
+﻿{
+    "CFreeBeforeGiB":  19.16,
+    "ObservedFreeChangeGiB":  5.94,
+    "Note":  "Only exact pip/npm/uv caches. Free-space change includes unrelated concurrent disk activity.",
+    "CFreeAfterGiB":  25.09,
+    "Targets":  [
+                    {
+                        "Path":  "C:\\Users\\nenoh\\AppData\\Local\\pip\\Cache",
+                        "Status":  "Removed",
+                        "ErrorCount":  0
+                    },
+                    {
+                        "Path":  "C:\\Users\\nenoh\\AppData\\Local\\npm-cache",
+                        "Status":  "Partial; locked files retained",
+                        "ErrorCount":  629
+                    },
+                    {
+                        "Path":  "C:\\Users\\nenoh\\AppData\\Local\\uv\\cache",
+                        "Status":  "Removed",
+                        "ErrorCount":  0
+                    }
+                ]
+}

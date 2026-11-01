@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-10-30T13:31:15.257Z",
+  "backedUp": false,
+  "backups": [
+    {
+      "backedUp": false,
+      "skipped": "native backup failed: The module '\\\\?\\D:\\X-System\\runtime\\ruflo-3.61.1\\node_modules\\better-sqlite3\\build\\Release\\better_sqlite3.node'\nwas compiled against a different Node.js version using\nNODE_MODULE_VERSION 127. This version of Node.js requires\nNODE_MODULE_VERSION 137. Please try re-compiling or re-installing\nthe module (for instance, using `npm rebuild` or `npm install`).",
+      "dbPath": "D:\\X-System\\.swarm\\memory.db"
+    },
+    {
+      "backedUp": false,
+      "skipped": "no-db",
+      "dbPath": "D:\\X-System\\.swarm\\agentdb-memory.db"
+    }
+  ],
+  "sizeBytes": 0,
+  "rotatedAway": 0,
+  "skipped": "native backup failed: The module '\\\\?\\D:\\X-System\\runtime\\ruflo-3.61.1\\node_modules\\better-sqlite3\\build\\Release\\better_sqlite3.node'\nwas compiled against a different Node.js version using\nNODE_MODULE_VERSION 127. This version of Node.js requires\nNODE_MODULE_VERSION 137. Please try re-compiling or re-installing\nthe module (for instance, using `npm rebuild` or `npm install`)."
+}
